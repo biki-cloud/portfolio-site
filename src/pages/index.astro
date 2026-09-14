@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../config';
+---
+<Layout title={siteConfig.siteName} description={siteConfig.siteDescription}>
+  <main>
+    <section class="starter-shell" aria-labelledby="starter-title">
+      <p class="starter-label">Astro + Cloudflare Pages</p>
+      <h1 id="starter-title">{siteConfig.siteName}</h1>
+      <p>{siteConfig.siteDescription}</p>
+      <a href="#content">Start building</a>
+    </section>
+
+    <section id="content" class="starter-content" aria-labelledby="content-title">
+      <p class="starter-label">Replace this page</p>
+      <h2 id="content-title">Your content starts here.</h2>
+      <p>
+        Replace this starter UI with the page structure, copy, and visual system for your project.
+      </p>
+    </section>
+  </main>
+</Layout>
