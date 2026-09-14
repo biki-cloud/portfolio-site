@@ -1,0 +1,25 @@
+---
+const navItems = [
+  ['About', '#about'],
+  ['Service', '#service'],
+  ['Pricing', '#pricing'],
+  ['FAQ', '#faq'],
+];
+---
+
+<header class="site-header">
+  <div class="site-header__inner section-shell">
+    <a class="brand" href="/" aria-label="Dodo Works ホーム"><span>DODO</span> / WORKS</a>
+    <nav class="desktop-nav" aria-label="メインナビゲーション">
+      {navItems.map((item) => <a href={item[1]}>{item[0]}</a>)}
+      <a class="nav-cta" href="#contact">相談する <span aria-hidden="true">↗</span></a>
+    </nav>
+    <details class="mobile-nav">
+      <summary aria-label="メニューを開く"><span></span><span></span></summary>
+      <nav aria-label="モバイルナビゲーション">
+        {navItems.map((item) => <a href={item[1]}>{item[0]}</a>)}
+        <a class="nav-cta" href="#contact">相談する <span aria-hidden="true">↗</span></a>
+      </nav>
+    </details>
+  </div>
+</header>

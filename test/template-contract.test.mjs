@@ -9,12 +9,13 @@ async function source(path) {
   return readFile(new URL(path, root), 'utf8');
 }
 
-test('template provides a neutral static-site starter', async () => {
+test('site provides the configured portfolio metadata', async () => {
   const page = await source('src/pages/index.astro');
   const config = await source('src/config.ts');
   const layout = await source('src/layouts/Layout.astro');
 
-  assert.match(config, /siteName:\s*['"]Your Site['"]/);
+  assert.match(config, /siteName:\s*['"]Dodo Works['"]/);
+  assert.match(config, /contactFormUrl/);
   assert.match(page, /siteConfig\.siteName/);
   assert.match(layout, /lang="ja"/);
 });
@@ -29,7 +30,7 @@ test('template is deployable as a static Cloudflare Pages site', async () => {
   assert.match(astroConfig, /@astrojs\/sitemap/);
 });
 
-test('template contains no customer-specific CMS or personal content', async () => {
+test('site contains no CMS dependency or starter placeholders', async () => {
   const sourceFiles = await Array.fromAsync(glob('src/**/*.{astro,css,js,ts,json,md,mjs}', {
     cwd: new URL('../', import.meta.url),
     exclude: ['node_modules/**', 'dist/**', '.astro/**'],
@@ -39,5 +40,5 @@ test('template contains no customer-specific CMS or personal content', async () 
   const combined = contents.join('\n');
 
   assert.doesNotMatch(combined, /microcms/i);
-  assert.doesNotMatch(combined, /森塚|Dodo Works|外構屋/);
+  assert.doesNotMatch(combined, /Your Site|Replace this starter UI|Start building/);
 });

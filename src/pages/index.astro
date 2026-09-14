@@ -1,22 +1,164 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
 import { siteConfig } from '../config';
+
+const serviceCards = [
+  {
+    number: '01',
+    title: '伝わる構成',
+    text: '誰に、何を届けたいかを整理して、初めて来た人にも内容が伝わるページにします。',
+  },
+  {
+    number: '02',
+    title: 'スマホで見やすい設計',
+    text: 'スマホで見るお客さまを中心に、迷わず問い合わせまで進める導線を設計します。',
+  },
+  {
+    number: '03',
+    title: '更新はおまかせ',
+    text: '公開後の小さな変更は、メールやLINEで内容を送ってもらえればこちらで対応します。',
+  },
+];
+
+const flow = [
+  ['01', 'ヒアリング', '事業のこと、届けたいお客さま、今困っていることを聞きます。'],
+  ['02', '無料デモ', 'ヒアリングをもとに、ページの雰囲気がわかるデモを作って見てもらいます。'],
+  ['03', '本制作', '内容と方向性が決まったら、文章・デザイン・実装をまとめて進めます。'],
+  ['04', '公開・運用', '公開後も、月2回までの軽微な更新をこちらで対応します。'],
+];
+
+const faqs = [
+  ['本当に無料でデモを作ってもらえますか？', 'はい。まずは事業内容とご希望を聞き、方向性を確認するためのデモを無料で作成します。デモを見てから、制作を依頼するか決めていただけます。'],
+  ['月額5,000円には何が含まれますか？', '文章の差し替え、画像の入れ替え、営業時間やメニューの変更など、月2回までの軽微な更新が含まれます。大幅な修正やページ追加は別途お見積もりです。'],
+  ['自分で更新する必要はありますか？', 'ありません。更新したい内容をメールやLINEで送っていただければ、こちらで反映します。自分で管理するCMSは、必要になった段階でご提案します。'],
+  ['どんな事業でも相談できますか？', '個人事業主や小規模なお店・サービスを中心に、業種を問わず相談できます。まずは現在の課題を聞かせてください。'],
+];
+
+const demos = [
+  {
+    label: 'DEMO 01 / LOCAL SERVICE',
+    title: 'サービスの良さを、最初の5秒で伝える',
+    text: '安心感と問い合わせのしやすさを重視した、地域サービス向けのデモです。',
+    href: 'https://template-exterior-lite.pages.dev',
+    className: 'demo-window--lime',
+  },
+  {
+    label: 'DEMO 02 / LOCAL SERVICE',
+    title: '選ばれる理由を、読みやすく並べる',
+    text: '実績や強みを整理し、スマホでも内容がすっと入る構成のデモです。',
+    href: 'https://template-exterior.pages.dev',
+    className: 'demo-window--blue',
+  },
+];
 ---
-<Layout title={siteConfig.siteName} description={siteConfig.siteDescription}>
-  <main>
-    <section class="starter-shell" aria-labelledby="starter-title">
-      <p class="starter-label">Astro + Cloudflare Pages</p>
-      <h1 id="starter-title">{siteConfig.siteName}</h1>
-      <p>{siteConfig.siteDescription}</p>
-      <a href="#content">Start building</a>
+
+<Layout title={`${siteConfig.siteName} | 小さな事業のホームページ制作`} description={siteConfig.siteDescription}>
+  <SiteHeader />
+
+  <main id="main-content">
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="eyebrow"><span class="eyebrow__dot"></span> SMALL BUSINESS WEB PARTNER</p>
+        <h1 id="hero-title">ホームページを、<br /><em>ちゃんと働く</em>窓口に。</h1>
+        <p class="hero__lead">小さな事業のためのホームページを、わかりやすく、手の届く価格で。つくって終わりではなく、公開後の更新までおまかせください。</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#demo">無料デモを見てみる <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#pricing">料金を見る <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero__note"><span>01</span> まずは話を聞かせてください。相談だけでも大丈夫です。</div>
+      </div>
+
+      <div class="hero__visual" aria-label="制作サイトのイメージ">
+        <div class="hero-card hero-card--back"></div>
+        <div class="hero-card hero-card--front">
+          <div class="browser-bar"><span></span><span></span><span></span><small>your-business.jp</small></div>
+          <div class="mock-site">
+            <div class="mock-site__nav"><b>YOUR<br />SERVICE</b><i></i><i></i><i></i></div>
+            <div class="mock-site__label">LOCAL / TRUST / CRAFT</div>
+            <div class="mock-site__title">選ばれる理由を、<br /><strong>ちゃんと伝える。</strong></div>
+            <div class="mock-site__line"></div>
+            <div class="mock-site__bottom"><span>ABOUT US</span><span>SCROLL ↓</span></div>
+          </div>
+        </div>
+        <div class="hero-sticker hero-sticker--top">FAST<br /><strong>↓</strong></div>
+        <div class="hero-sticker hero-sticker--bottom">DESIGNED<br /><strong>FOR YOU</strong></div>
+      </div>
     </section>
 
-    <section id="content" class="starter-content" aria-labelledby="content-title">
-      <p class="starter-label">Replace this page</p>
-      <h2 id="content-title">Your content starts here.</h2>
-      <p>
-        Replace this starter UI with the page structure, copy, and visual system for your project.
-      </p>
+    <div class="ticker" aria-label="サービスの特徴">
+      <div class="ticker__track"><span>DESIGN WITH PURPOSE</span><b>✳</b><span>BUILT FOR SMALL BUSINESS</span><b>✳</b><span>UPDATED WITH CARE</span><b>✳</b><span>DESIGN WITH PURPOSE</span><b>✳</b></div>
+    </div>
+
+    <section id="about" class="section section--light" aria-labelledby="about-title">
+      <div class="section-shell about-grid">
+        <div class="section-intro">
+          <p class="eyebrow eyebrow--dark">ABOUT / 01</p>
+          <h2 id="about-title">大きな会社のためではなく、<br /><em>顔が見える事業</em>のために。</h2>
+        </div>
+        <div class="about-copy">
+          <p class="lead-copy">いいサービスなのに、ホームページがない。それだけで、最初の問い合わせを逃しているかもしれません。</p>
+          <p>私は、個人事業主や小規模なお店の「ちゃんと伝えたい」を、ページの形にする仕事をしています。難しい言葉や余計な機能を増やさず、必要なものを一緒に整えます。</p>
+          <div class="profile-card">
+            <div class="profile-card__mark">H</div>
+            <div><strong>森塚 響</strong><span>Web制作・運用 / Dodo Works</span></div>
+            <span class="profile-card__arrow" aria-hidden="true">↗</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="service" class="section section--ink" aria-labelledby="service-title">
+      <div class="section-shell">
+        <div class="section-heading section-heading--split">
+          <div><p class="eyebrow">WHAT I DO / 02</p><h2 id="service-title">必要なことを、<br /><em>必要なだけ。</em></h2></div>
+          <p>見た目だけではなく、問い合わせにつながるページとして設計。小さな事業が無理なく使い続けられることを大切にしています。</p>
+        </div>
+        <div class="service-grid">
+          {serviceCards.map((card) => <article class="service-card"><span class="service-card__number">{card.number}</span><h3>{card.title}</h3><p>{card.text}</p><span class="service-card__line"></span></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section section--paper" aria-labelledby="pricing-title">
+      <div class="section-shell pricing-grid">
+        <div class="section-intro"><p class="eyebrow eyebrow--dark">ONE PLAN / 03</p><h2 id="pricing-title">わかりやすい<br /><em>ひとつのプラン。</em></h2><p class="section-intro__note">最初はひとつから。必要になったら、できることを相談しながら増やせます。</p></div>
+        <div class="price-card">
+          <div class="price-card__top"><span>STARTER WEB</span><span>01 / 01</span></div>
+          <div class="price-card__main"><p>初期制作費</p><strong>30,000<small>円〜</small></strong></div>
+          <div class="price-card__monthly"><span>公開後の更新</span><strong>月額 5,000<small>円〜</small></strong></div>
+          <ul class="check-list"><li>目的に合わせた1ページ制作</li><li>スマホ対応・公開サポート</li><li>メールやLINEで更新依頼</li><li>月2回までの軽微な更新</li></ul>
+          <p class="price-card__caption">※大幅な修正、ページ追加、撮影などは別途お見積もりします。</p>
+          <a class="button button--ink" href="#contact">このプランについて相談する <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo" class="section section--sand" aria-labelledby="demo-title">
+      <div class="section-shell">
+        <div class="section-heading section-heading--split"><div><p class="eyebrow eyebrow--dark">SELECTED DEMOS / 04</p><h2 id="demo-title">まずは、<br /><em>見てみる。</em></h2></div><p>あなたの事業ならどう見えるか。話を聞いたうえで、無料のデモを作ってお見せします。</p></div>
+        <div class="demo-grid">
+          {demos.map((demo, index) => <a class="demo-card" href={demo.href} target="_blank" rel="noreferrer"><div class={`demo-window ${demo.className}`}><div class="demo-window__bar"><span></span><span></span><span></span><small>demo / 0{index + 1}</small></div><div class="demo-window__body"><span class="demo-window__mini-label">LOCAL SERVICE</span><strong>{index === 0 ? '毎日の暮らしに、\nひとつの安心。' : '手をかけた分だけ、\n伝わる仕事。'}</strong><i></i><b>{index === 0 ? 'VIEW SERVICE' : 'VIEW STORY'} <span>↗</span></b></div></div><div class="demo-card__meta"><div><span>{demo.label}</span><h3>{demo.title}</h3><p>{demo.text}</p></div><strong aria-hidden="true">↗</strong></div></a>)}
+        </div>
+      </div>
+    </section>
+
+    <section id="flow" class="section section--light" aria-labelledby="flow-title">
+      <div class="section-shell">
+        <div class="section-heading"><p class="eyebrow eyebrow--dark">HOW IT WORKS / 05</p><h2 id="flow-title">相談から公開まで、<br /><em>一緒に進めます。</em></h2></div>
+        <div class="flow-list">{flow.map((item) => <div class="flow-item"><span>{item[0]}</span><h3>{item[1]}</h3><p>{item[2]}</p><b aria-hidden="true">↗</b></div>)}</div>
+      </div>
+    </section>
+
+    <section id="faq" class="section section--paper" aria-labelledby="faq-title">
+      <div class="section-shell faq-grid"><div class="section-intro"><p class="eyebrow eyebrow--dark">FAQ / 06</p><h2 id="faq-title">よくある<br /><em>質問。</em></h2></div><div class="faq-list">{faqs.map((faq) => <details><summary>{faq[0]}<span aria-hidden="true">+</span></summary><p>{faq[1]}</p></details>)}</div></div>
+    </section>
+
+    <section id="contact" class="contact section-shell" aria-labelledby="contact-title">
+      <div class="contact__mark">LET'S<br /><em>MAKE</em><br />IT WORK.</div>
+      <div class="contact__copy"><p class="eyebrow">START WITH A CHAT / 07</p><h2 id="contact-title">まずは、<br /><em>話してみませんか。</em></h2><p>「何から相談すればいいかわからない」でも大丈夫です。事業のこと、今困っていることを聞かせてください。</p><a class="button button--lime" href={siteConfig.contactFormUrl} target="_blank" rel="noreferrer">無料相談フォームを開く <span aria-hidden="true">↗</span></a></div>
     </section>
   </main>
+
+  <footer class="site-footer"><div class="section-shell site-footer__inner"><div><a class="brand brand--footer" href="/">DODO<span> / WORKS</span></a><p>小さな事業のための<br />ホームページ制作と運用。</p></div><div class="site-footer__links"><a href="#about">About</a><a href="#service">Service</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a></div><small>© {new Date().getFullYear()} Dodo Works</small></div></footer>
 </Layout>
