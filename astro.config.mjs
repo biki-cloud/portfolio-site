@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://portfolio-site.pages.dev',
+  site: 'https://portfolio-site-au9.pages.dev',
   output: 'static',
   vite: {
     plugins: [tailwindcss()],
