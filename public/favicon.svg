@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Site icon">
-  <rect width="64" height="64" rx="16" fill="#152235" />
-  <path d="M18 22h28M18 32h20M18 42h28" stroke="#55d6ff" stroke-width="5" stroke-linecap="round" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Dodo Works icon">
+  <rect width="64" height="64" rx="12" fill="#09111f" />
+  <path d="M18 17h8v30h-8zM31 17h15v8H31zM31 29h10v8H31z" fill="#c9f44a" />
 </svg>

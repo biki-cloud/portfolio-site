@@ -1,29 +1,10 @@
-# portfolio-cloudflare-pages-template
+# Dodo Works portfolio site
 
-Astro + Tailwind CSS v4 + Cloudflare Pagesで静的サイトを始めるための、個人・顧客サイト向けスターターテンプレートです。
+小さな事業向けのホームページ制作・運用サービス「Dodo Works」の営業用ポートフォリオです。
 
-このリポジトリはGitHub Template repositoryとして利用します。ページのUI/UX、文章、配色、コンポーネント構成は、作成するサイトごとに自由に実装してください。
+`portfolio-cloudflare-pages-template` を土台に、今回のサービス向けの文章・UI/UX・料金導線を独自実装しています。顧客サイト用のCMSはまだ導入せず、公開後の軽微な更新はメールやLINEで受け付ける前提です。
 
-## 含まれるもの
-
-- Astroの静的ビルド
-- Tailwind CSS v4のVite統合
-- Cloudflare Pages向けの設定
-- sitemap生成
-- 404ページ
-- 最小限のレスポンシブスターターUI
-- Node.js標準テストによるテンプレート契約テスト
-
-## 含まないもの
-
-- CMS
-- 顧客固有の文章・画像・ドメイン
-- 問い合わせフォームの送信先
-- 業種固有のUI/UX
-
-## 使い方
-
-GitHubの「Use this template」から新しいリポジトリを作成し、`src/config.ts` と `astro.config.mjs` のサイト情報を変更してください。
+## 開発
 
 ```sh
 npm install
@@ -37,7 +18,10 @@ npm test
 npm run build
 ```
 
-## Cloudflare Pages設定
+## Cloudflare Pages
 
 - Build command: `npm run build`
 - Output directory: `dist`
+- Framework preset: Astro
+
+サイト名・説明・公開URL・問い合わせフォームは `src/config.ts` で変更できます。
